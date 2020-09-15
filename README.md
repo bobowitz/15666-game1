@@ -10,7 +10,7 @@ Screen Shot:
 
 How Your Asset Pipeline Works:
 
-I wrote a program called asset_converter that reads in a png image and converts the contents to palette and tile data. The data is stored in the same format in memory as it would be in the PPU466, and then is written directly to a chunked file which is then read directly into the same structures in memory.
+I wrote a program called asset_converter that reads in a png image and converts the contents to palette and tile data. The first column of the png is reserved for palettes, and the rest is tile data. The data gets stored in the same format in memory as it would be in the PPU466, and then is written directly to a chunked file which is then read directly into the same structures in memory. Backgrounds are generated on-the-fly.
 
 How To Play:
 

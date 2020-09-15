@@ -57,7 +57,8 @@ if $(OS) = NT { #Windows
 	LINK = g++ -no-pie ;
 	LINKFLAGS = -std=c++17 -g -Wall -Werror ;
 	LINKLIBS =
-		`'$(NEST_LIBS)/SDL2/bin/sdl2-config' --prefix='$(NEST_LIBS)/SDL2' --static-libs` -lGL #SDL2
+		`'$(NEST_LIBS)/SDL2/bin/sdl2-config' --prefix='$(NEST_LIBS)/SDL2' --static-libs`
+		-lGL #SDL2
 		-L$(NEST_LIBS)/libpng/lib -lpng                                                       #libpng
 		-L$(NEST_LIBS)/zlib/lib -lz                                                           #zlib
 		;
@@ -79,6 +80,12 @@ GAME_NAMES =
 	Mode
 	GL
 	Load
+	data_path
+	;
+
+ASSET_PIPELINE_NAMES =
+	load_save_png
+	asset_converter
 	;
 
 LOCATE_TARGET = objs ; #put objects in 'objs' directory
@@ -86,3 +93,9 @@ Objects $(GAME_NAMES:S=.cpp) ;
 
 LOCATE_TARGET = dist ; #put main in 'dist' directory
 MainFromObjects game : $(GAME_NAMES:S=$(SUFOBJ)) ;
+
+LOCATE_TARGET = asset_pipeline/objs ;
+Objects $(ASSET_PIPELINE_NAMES:S=.cpp) ;
+
+LOCATE_TARGET = asset_pipeline/bin ;
+MainFromObjects asset_converter : $(ASSET_PIPELINE_NAMES:S=$(SUFOBJ)) ;

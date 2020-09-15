@@ -1,8 +1,8 @@
-# (TODO: your game's title)
+# MIDAS
 
-Author: (TODO: your name)
+Author: Alton Olson
 
-Design: (TODO: In two sentences or fewer, describe what is new and interesting about your game.)
+Design: An arcade-style platformer where you try to touch every "island" of tiles in the room.
 
 Screen Shot:
 
@@ -10,13 +10,13 @@ Screen Shot:
 
 How Your Asset Pipeline Works:
 
-(TODO: describe the steps in your asset pipeline, from source files to tiles/backgrounds/whatever you upload to the PPU466.)
+I wrote a program called asset_converter that reads in a png image and converts the contents to palette and tile data. The data is stored in the same format in memory as it would be in the PPU466, and then is written directly to a chunked file which is then read directly into the same structures in memory.
 
 How To Play:
 
-(TODO: describe the controls and (if needed) goals/strategy.)
+Use the arrow keys to move and jump. Press space if you need to skip a room.
 
-Sources: (TODO: list a source URL for any assets you did not create yourself. Make sure you have a license for the asset.)
+Sources: none
 
 This game was built with [NEST](NEST.md).
 
